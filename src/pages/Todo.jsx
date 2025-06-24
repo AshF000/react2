@@ -1,11 +1,12 @@
-import React from 'react'
+import React from "react";
+import Sidebar from "../components/Sidebar";
 
 const Todo = () => {
   return (
     <>
-    <h1>Todo</h1>
+      <Sidebar />
     </>
-  )
-}
+  );
+};
 
-export default Todo
+export default Todo;
