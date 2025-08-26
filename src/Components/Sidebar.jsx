@@ -14,7 +14,7 @@ const Sidebar = ({ name = "Person's Name", image }) => {
 
   return (
     <>
-      <div className="bg-todo-green h-screen p-[58px,50px] max-w-2xs flex flex-col justify-around items-center text-white">
+      <div className="bg-todo-green h-screen w-64 max-w-2xs flex flex-col justify-between items-center text-white py-8">
         {/* PROFILE */}
         <div className="max-w-52 aspect-square flex flex-col justify-between items-center">
           {/* DP */}
@@ -46,8 +46,8 @@ const Sidebar = ({ name = "Person's Name", image }) => {
         </div>
 
         {/* MENU */}
-        <div className="max-h-30 h-30 ">
-          <ul className="flex flex-col justify-between items-center h-full">
+        <div className="max-h-60 h-60 ">
+          <ul className="flex flex-col justify-evenly items-center h-full">
             <li className={menuStyle}>
               <a href="#">To - Do</a>
             </li>
@@ -61,7 +61,7 @@ const Sidebar = ({ name = "Person's Name", image }) => {
         </div>
 
         {/* OPTIONS */}
-        <div className="flex flex-col h-16 items-center justify-between">
+        <div className="flex flex-col h-16 items-center justify-evenly">
           <a className={menuStyle} href="#">
             Settings
           </a>
