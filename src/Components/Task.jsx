@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Task = ({ taskDetails }) => {
+const Task = ({index, taskDetails }) => {
     return (
-        <div className='flex wrap items-center'>
+        <div key={index} className='flex wrap items-center'>
             <button className='text-[32px] mr-2 hover:text-[rgba(255,174,66,0.6)]'>☆</button>
             <div className='flex justify-between items-center bg-[#9a9bbd] py-2 px-6 black text-[22px] rounded-xl w-full '>
                 <p className=''>{taskDetails}</p>

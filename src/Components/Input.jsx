@@ -1,8 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 
-const Input = ({width}) => {
-
-    const [value, setValue] = useState("")
+const Input = ({width, value, setValue}) => {
 
     const [clear, setClear] = useState(false)
 
