@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 
-const Input = () => {
+const Input = ({width}) => {
 
     const [value, setValue] = useState("")
 
@@ -21,7 +21,7 @@ const Input = () => {
 
 
     return (
-        <div className='w-[60%] rounded-lg p-3 my-6 bg-white relative'>
+        <div className= {`${width} rounded-lg p-3 my-6 bg-white relative`}>
             <input placeholder='Add To-Do / Note' ref={inputRef} className='w-full focus:outline-0 text-xl ' type="text" value={value} onChange={(e) => { setValue(e.target.value) }} />
             {clear &&
                 <button className='absolute right-4 font-bold' onClick={handleClear}>X</button>
