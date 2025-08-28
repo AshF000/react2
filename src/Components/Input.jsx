@@ -1,10 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react'
 
-const Input = ({width, value, setValue}) => {
+const Input = ({ width, value, setValue, inputRef, onKeyDown }) => {
 
     const [clear, setClear] = useState(false)
 
-    const inputRef = useRef(null)
 
     const handleClear = () => {
         setValue("");
@@ -19,8 +18,8 @@ const Input = ({width, value, setValue}) => {
 
 
     return (
-        <div className= {`${width} rounded-lg p-3 my-6 bg-white relative`}>
-            <input placeholder='Add To-Do / Note' ref={inputRef} className='w-full focus:outline-0 text-xl ' type="text" value={value} onChange={(e) => { setValue(e.target.value) }} />
+        <div className={`${width} rounded-lg p-3 my-6 bg-white relative`}>
+            <input placeholder='Add To-Do / Note' ref={inputRef} className='w-full focus:outline-0 text-xl ' type="text" value={value} onChange={(e) => { setValue(e.target.value) }} onKeyDown={onKeyDown} />
             {clear &&
                 <button className='absolute right-4 font-bold' onClick={handleClear}>X</button>
             }
