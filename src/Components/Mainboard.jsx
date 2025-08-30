@@ -11,6 +11,7 @@ const Mainboard = () => {
 
     const [inputValue, setInputValue] = useState("")
     const [tasks, setTasks] = useState([])
+    const [toFetch, setToFetch] = useState(true)
 
     const inputRef = useRef(null)
 
@@ -22,6 +23,7 @@ const Mainboard = () => {
         if (error) console.log("Error adding todo:", error)
         // else setTodos([data[0], ...todos])
         else console.log("dhukeche")
+        setToFetch(true)
     }
 
     const handleAddTask = () => {
@@ -54,7 +56,7 @@ const Mainboard = () => {
             {/* TaskCard Scroll Container */}
             {/* <div className="mt-2 overflow-x-auto overflow-y-hidden w-full max-w-full"> */}
             <div className="mt-2 ">
-                <TaskCard tasks={tasks} />
+                <TaskCard toFetch={toFetch} setToFetch={setToFetch}/>
             </div>
 
         </div>

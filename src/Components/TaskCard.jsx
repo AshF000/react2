@@ -3,21 +3,20 @@ import { supabase } from '../supabaseClient';
 import { useEffect, useState } from 'react';
 
 
-const TaskCard = ({ tasks }) => {
+const TaskCard = ({ toFetch, setToFetch }) => {
   const [todos, setTodos] = useState([])
 
   useEffect(() => {
-    fetchTodos()
-  }, [todos])
+    toFetch && fetchTodos()
+  }, [toFetch])
 
   const fetchTodos = async () => {
     const { data, error } = await supabase.from("todosTable").select("*").order("created_at", { ascending: false })
 
     if (error) console.log("Error fetching todos:", error)
     else setTodos(data)
+    setToFetch(false)
   }
-
-
 
   const handleChunk = (tasks, chunkSize) => {
     const chunks = [];
@@ -26,6 +25,8 @@ const TaskCard = ({ tasks }) => {
     }
     return chunks;
   };
+
+  console.log("hi")
 
   const taskChunks = handleChunk(todos, 10); // or 5 as you prefer
 
