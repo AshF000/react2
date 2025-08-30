@@ -4,8 +4,8 @@ const Task = ({index, taskDetails }) => {
     return (
         <div key={index} className='flex wrap items-center'>
             <button className='text-[32px] mr-2 hover:text-[rgba(255,174,66,0.6)]'>☆</button>
-            <div className='flex justify-between items-center bg-[#9a9bbd] py-2 px-6 black text-[22px] rounded-xl overflow-hidden w-full '>
-                <p className='truncate max-w-[calc(100%-100px)] overflow-hidden text-[20px]'>{taskDetails}</p>
+            <div className='flex justify-between items-center bg-[#9a9bbd] py-2 px-6 text-[22px] rounded-xl overflow-hidden w-full '>
+                <p className='truncate max-w-[calc(100%-70px)] overflow-hidden text-[20px]'>{taskDetails}</p>
                 <div className='flex justify-between items-center w-[25%]'>
                     <button className='w-[28px] h-[28px] rounded-full bg-[#228be6] border-2 border-[#a5d8ff] outline-2 outline-white flex items-center justify-center hover:cursor-pointer'>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"  className="fill-black/80 size-4">

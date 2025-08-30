@@ -4,27 +4,39 @@ import Button from './Button';
 import Header from './Header';
 import Input from './Input';
 import TaskCard from './TaskCard';
+import { supabase } from '../supabaseClient';
 
 
 const Mainboard = () => {
-
 
     const [inputValue, setInputValue] = useState("")
     const [tasks, setTasks] = useState([])
 
     const inputRef = useRef(null)
-    // const btnRef = useRef(null)
+
+    const addTodo = async (title) => {
+        const { data, error } = await supabase
+            .from("todosTable")
+            .insert([{ title }]).select()
+
+        if (error) console.log("Error adding todo:", error)
+        // else setTodos([data[0], ...todos])
+        else console.log("dhukeche")
+    }
 
     const handleAddTask = () => {
-        if (inputValue.trim() === "") return;
-
-        setTasks([...tasks, inputValue])
+        let a = inputValue
+        if (a.trim() === "") return;
+        // setTasks([...tasks, a])
         setInputValue("")
         inputRef.current?.focus()
+
+        addTodo(a)
+
     }
+
     const handleKeyDown = (e) => {
-        console.log(e.key)
-        if(e.key=='Enter'){
+        if (e.key == 'Enter') {
             handleAddTask()
         }
     }
